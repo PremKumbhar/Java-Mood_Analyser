@@ -5,11 +5,20 @@ import org.junit.jupiter.api.Test;
 
 public class MoodAnalyserTest {
     @Test
-    public void givenMessage_IsProper_ShouldReturnSad() {
-        MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
-        String actualResult = moodAnalyzer.analyseMood("I am in Any Mood");
-        Assertions.assertEquals("HAPPY", actualResult);
+    public void testMoodAnalysis() {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in sad mood");
+        String actualResult = moodAnalyzer.analyseMood();
+        Assertions.assertEquals("SAD", actualResult);
     }
 
+    /**
+     * This method will return Happy if we pass as in any mood.
+     */
+    @Test
+    public void givenHappyMessage_shouldReturnHappy() {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("I am in happy mood");
+        String actualResult = moodAnalyzer.analyseMood();
+        Assertions.assertEquals("HAPPY", actualResult);
+    }
 
 }
